@@ -54,14 +54,46 @@
 		B04745442209B71F00C14A05 /* stock-ios */ = {
 			isa = PBXGroup;
 			children = (
-				B04745452209B71F00C14A05 /* AppDelegate.swift */,
-				B04745472209B71F00C14A05 /* ViewController.swift */,
-				B04745492209B71F00C14A05 /* Main.storyboard */,
-				B047454C2209B72000C14A05 /* Assets.xcassets */,
-				B047454E2209B72000C14A05 /* LaunchScreen.storyboard */,
-				B04745512209B72000C14A05 /* Info.plist */,
+				B047455A2209B7C900C14A05 /* Controllers */,
+				B04745582209B7A000C14A05 /* Resources */,
+				B04745572209B76800C14A05 /* Application */,
 			);
 			path = "stock-ios";
+			sourceTree = "<group>";
+		};
+		B04745572209B76800C14A05 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				B04745452209B71F00C14A05 /* AppDelegate.swift */,
+				B04745512209B72000C14A05 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		B04745582209B7A000C14A05 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B04745592209B7BC00C14A05 /* Storyboards */,
+				B047454C2209B72000C14A05 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B04745592209B7BC00C14A05 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B04745492209B71F00C14A05 /* Main.storyboard */,
+				B047454E2209B72000C14A05 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B047455A2209B7C900C14A05 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B04745472209B71F00C14A05 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +316,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CX6AZ34SLQ;
-				INFOPLIST_FILE = "stock-ios/Info.plist";
+				INFOPLIST_FILE = "stock-ios/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +335,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CX6AZ34SLQ;
-				INFOPLIST_FILE = "stock-ios/Info.plist";
+				INFOPLIST_FILE = "stock-ios/Application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
