@@ -8,7 +8,9 @@ target 'stock-ios' do
   pod 'Kingfisher', '~> 4.0'
   pod 'Alamofire', '~> 4.7'
   pod 'MBProgressHUD', '~> 1.0.0'
-
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'SwiftyJSON', '~> 4.0'
   # Pods for stock-ios
 
 end

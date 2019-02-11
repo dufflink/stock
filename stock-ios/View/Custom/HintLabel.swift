@@ -21,7 +21,7 @@ class HintLabel: UILabel {
     }
     
     func setupLabel() {
-        font = UIFont(name: "HelveticaNeue-Light", size: 14)
-        textColor = UIColor.black.withAlphaComponent(0.7)
+        font = UIFont(name: "HelveticaNeue-Light", size: 12)
+        textColor = UIColor.black.withAlphaComponent(0.5)
     }
 }

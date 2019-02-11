@@ -26,6 +26,10 @@
 		B035C24F220ADFD1007DA5CD /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C24E220ADFD1007DA5CD /* Api.swift */; };
 		B035C252220AE225007DA5CD /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C251220AE225007DA5CD /* UserData.swift */; };
 		B035C255220AE532007DA5CD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C254220AE532007DA5CD /* Constants.swift */; };
+		B035C28A220EC72D007DA5CD /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C289220EC72D007DA5CD /* SignUpViewModel.swift */; };
+		B035C28D220ECE7C007DA5CD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C28C220ECE7C007DA5CD /* Utils.swift */; };
+		B035C28F220ED1C3007DA5CD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C28E220ED1C3007DA5CD /* String.swift */; };
+		B035C2912211573B007DA5CD /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B035C2902211573B007DA5CD /* UIViewController.swift */; };
 		B04745462209B71F00C14A05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04745452209B71F00C14A05 /* AppDelegate.swift */; };
 		B04745482209B71F00C14A05 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04745472209B71F00C14A05 /* LaunchScreenViewController.swift */; };
 		B047454B2209B71F00C14A05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04745492209B71F00C14A05 /* Main.storyboard */; };
@@ -57,6 +61,10 @@
 		B035C24E220ADFD1007DA5CD /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		B035C251220AE225007DA5CD /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B035C254220AE532007DA5CD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B035C289220EC72D007DA5CD /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		B035C28C220ECE7C007DA5CD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B035C28E220ED1C3007DA5CD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		B035C2902211573B007DA5CD /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		B04745422209B71F00C14A05 /* stock-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stock-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04745452209B71F00C14A05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B04745472209B71F00C14A05 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +110,7 @@
 		B035C237220ABE3D007DA5CD /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				B035C28B220ECE71007DA5CD /* Utils */,
 				B035C24D220ADFC3007DA5CD /* Api */,
 				B035C243220ACE22007DA5CD /* Structs */,
 				B035C242220ACDFB007DA5CD /* Extensions */,
@@ -131,6 +140,8 @@
 			children = (
 				B035C240220ACDAC007DA5CD /* UIColor.swift */,
 				B035C246220AD10C007DA5CD /* UIView.swift */,
+				B035C28E220ED1C3007DA5CD /* String.swift */,
+				B035C2902211573B007DA5CD /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -138,9 +149,10 @@
 		B035C243220ACE22007DA5CD /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				B035C253220AE51F007DA5CD /* Constants */,
-				B035C244220ACE34007DA5CD /* AppColor.swift */,
 				B035C23A220AC632007DA5CD /* Config.swift */,
+				B035C244220ACE34007DA5CD /* AppColor.swift */,
+				B035C238220ABE89007DA5CD /* UIConstants.swift */,
+				B035C254220AE532007DA5CD /* Constants.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -169,13 +181,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B035C253220AE51F007DA5CD /* Constants */ = {
+		B035C288220EC71B007DA5CD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B035C238220ABE89007DA5CD /* UIConstants.swift */,
-				B035C254220AE532007DA5CD /* Constants.swift */,
+				B035C289220EC72D007DA5CD /* SignUpViewModel.swift */,
 			);
-			path = Constants;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B035C28B220ECE71007DA5CD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B035C28C220ECE7C007DA5CD /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B04745392209B71F00C14A05 = {
@@ -201,6 +220,7 @@
 			children = (
 				B035C250220AE216007DA5CD /* Models */,
 				B035C237220ABE3D007DA5CD /* Helper */,
+				B035C288220EC71B007DA5CD /* ViewModels */,
 				B047455A2209B7C900C14A05 /* Controllers */,
 				B035C23C220AC6D4007DA5CD /* View */,
 				B04745582209B7A000C14A05 /* Resources */,
@@ -363,6 +383,10 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -371,6 +395,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -389,6 +417,7 @@
 				B035C241220ACDAC007DA5CD /* UIColor.swift in Sources */,
 				B035C23F220AC727007DA5CD /* StyleButton.swift in Sources */,
 				B035C24A220AD38C007DA5CD /* AppViewController.swift in Sources */,
+				B035C28A220EC72D007DA5CD /* SignUpViewModel.swift in Sources */,
 				B035C236220ABD85007DA5CD /* TabsViewController.swift in Sources */,
 				B035C23B220AC632007DA5CD /* Config.swift in Sources */,
 				B035C245220ACE34007DA5CD /* AppColor.swift in Sources */,
@@ -397,9 +426,12 @@
 				B035C230220AB6F7007DA5CD /* StartViewController.swift in Sources */,
 				B04745482209B71F00C14A05 /* LaunchScreenViewController.swift in Sources */,
 				B035C232220ABCD7007DA5CD /* SignInViewController.swift in Sources */,
+				B035C2912211573B007DA5CD /* UIViewController.swift in Sources */,
 				B035C252220AE225007DA5CD /* UserData.swift in Sources */,
+				B035C28D220ECE7C007DA5CD /* Utils.swift in Sources */,
 				B04745462209B71F00C14A05 /* AppDelegate.swift in Sources */,
 				B035C24F220ADFD1007DA5CD /* Api.swift in Sources */,
+				B035C28F220ED1C3007DA5CD /* String.swift in Sources */,
 				B035C239220ABE89007DA5CD /* UIConstants.swift in Sources */,
 				B035C255220AE532007DA5CD /* Constants.swift in Sources */,
 			);
