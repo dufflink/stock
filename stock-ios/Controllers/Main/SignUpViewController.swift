@@ -18,11 +18,12 @@ class SignUpViewController : AppViewController {
     @IBOutlet weak var passwordCheck: UIImageView!
     @IBOutlet weak var emailCheck: UIImageView!
     @IBOutlet weak var loginCheck: UIImageView!
-    @IBOutlet weak var login: UITextField!
     
-    @IBOutlet weak var repeatPassword: UITextField!
-    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var login: UITextField!
     @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var repeatPassword: UITextField!
+    
     @IBOutlet weak var signUp: UIBarButtonItem!
     
     let signUpViewModel = SignUpViewModel()
@@ -35,7 +36,7 @@ class SignUpViewController : AppViewController {
         bindingViewModel()
         setCallBack()
     }
-    
+
     func bindingViewModel() {
         login.rx.text
             .throttle(0.3, scheduler: MainScheduler.instance)
@@ -81,8 +82,10 @@ class SignUpViewController : AppViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { value in
                 if value {
+                    self.signUp.isEnabled = false
                     self.showHud()
                 } else {
+                    self.signUp.isEnabled = true
                     self.hideHud()
                 }
             }).disposed(by: bag)
@@ -113,6 +116,7 @@ class SignUpViewController : AppViewController {
     
     override func setLayoutOptions() {
         self.title = "Регистрация"
-        self.view.backgroundColor = UIColor.AppColor.Gray.grayLight
+        self.view.setBackground(name: "StartBackground")
+        self.view.addEndEditingTapper()
     }
 }

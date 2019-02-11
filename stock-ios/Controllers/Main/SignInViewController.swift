@@ -16,6 +16,6 @@ class SignInViewController: AppViewController {
     
     override func setLayoutOptions() {
         self.title = "Авторизация"
-        self.view.backgroundColor = UIColor.AppColor.Gray.grayLight
+        self.view.setBackground(name: "StartBackground")
     }
 }
