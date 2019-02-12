@@ -103,8 +103,5 @@ class SignUpViewModel {
             self.isLoading.onNext(false)
             self.result.onNext(result)
         }
-        print("Go reg")
-        print(signUpData)
-
     }
 }

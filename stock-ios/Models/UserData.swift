@@ -30,3 +30,53 @@ class SignUpData: Codable {
     var method = Methods.signup
 }
 
+class SignInParams : Codable {
+    var login : String!
+    var password : String!
+    var user_agent : String!
+    
+    init(login : String, password : String, user_agent : String) {
+        self.login = login
+        self.password = password
+        self.user_agent = user_agent
+    }
+}
+
+class SignInData: Codable {
+    var params : SignInParams!
+    var method = Methods.signin
+}
+
+class CheckTokenParams: Codable {
+    var who : Int!
+    var token : String!
+    var user_agent : String!
+    
+    init(who : Int, token : String, user_agent : String) {
+        self.who = who
+        self.token = token
+        self.user_agent = user_agent
+    }
+}
+
+class CheckTokenData : Codable {
+    var params : CheckTokenParams!
+    var method = Methods.checkToken
+}
+
+class UserIdParams : Codable {
+    var id : Int64!
+    init(id :Int64) { self.id = id }
+}
+
+class GetUserInfoData : Codable {
+    var params : UserIdParams!
+    var method = Methods.getUserInfo
+}
+
+class GetUserStatData : Codable {
+    var params : UserIdParams!
+    var method = Methods.getUserStat
+}
+
+
