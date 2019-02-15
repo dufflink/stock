@@ -11,6 +11,13 @@ import UIKit
 
 class CategoriesViewController : AppViewController {
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+    }
+    
+    override func setLayoutOptions() {
+        navigationController?.navigationBar.barStyle = .black
+        view.backgroundColor = UIColor.AppColor.Red.redUltraWhite
+        title = "Категории"
+
     }
 }

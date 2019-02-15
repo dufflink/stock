@@ -52,7 +52,7 @@ class SignInViewModel {
     }
     
     func getUserInfo() {
-        getUserInfoData.params = UserIdParams(id: User.shared.id)
+        getUserInfoData.params = IdParams(id: User.shared.id)
         
         Api.shared.getUserInfo(info: getUserInfoData) { result in
             self.checkResult(result: result, action: self.getUserStat)
@@ -60,15 +60,14 @@ class SignInViewModel {
     }
     
     func getUserStat() {
-        getUserStatData.params = UserIdParams(id: User.shared.id)
+        getUserStatData.params = IdParams(id: User.shared.id)
         
         Api.shared.getUserStat(info: getUserStatData) { result in
+            self.isLoading.onNext(false)
             switch result {
             case .isSuccess:
-                self.isLoading.onNext(false)
                 self.result.onNext(.isSuccess)
-            case .errorDecode, .errorRequst, .errorEncode, .isFailure(_):
-                self.isLoading.onNext(false)
+            case .errorDecode, .errorRequst, .errorEncode, .isFailure(_), .noInternetConnection:
                 self.result.onNext(result)
                 break
             }
@@ -76,11 +75,12 @@ class SignInViewModel {
     }
     
     func checkResult(result : ResultApiCall, action: () -> Void) {
+        self.isLoading.onNext(false)
+
         switch result {
         case .isSuccess:
             action()
-        case .errorDecode, .errorRequst, .errorEncode, .isFailure(_):
-            self.isLoading.onNext(false)
+        case .errorDecode, .errorRequst, .errorEncode, .isFailure(_), .noInternetConnection:
             self.result.onNext(result)
             break
         }

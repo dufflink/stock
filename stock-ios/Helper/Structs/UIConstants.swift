@@ -11,7 +11,7 @@ import UIKit
 
 struct VCIdentifier {
     static let startVC = "StartViewController"
-    static let tabBarVC = "TabsViewController"
+    static let tabBarNavVC = "TabsNavigationController"
     static let mainNavVC = "MainNavigationController"
 }
 

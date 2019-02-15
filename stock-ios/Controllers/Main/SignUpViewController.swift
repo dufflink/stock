@@ -110,6 +110,8 @@ class SignUpViewController : AppViewController {
                 case 2: self.showAlertOk(title: "Ошибка регистрации", message: "Такой адрес электронной почты уже занят")
                 default: self.showAlertOk(title: "Извинте", message: "Во время регистрации произошла ошибка, повторите попытку еще раз")
                 }
+            case .noInternetConnection:
+                self.showAlertNoConnection()
             }
         }.disposed(by: bag)
     }

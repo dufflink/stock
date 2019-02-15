@@ -12,6 +12,16 @@ import MBProgressHUD
 
 extension UIViewController {
     
+    func showAlertNoConnection() {
+    let alert = UIAlertController(title: "Подключение отсутствует", message: "Проверьте, пожалуйста, подключение к интерент сети", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "ОК", style: .default, handler: nil)
+        
+        alert.addAction(ok)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
     func showAlertOk(title : String, message : String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "ОК", style: .default, handler: nil)
@@ -53,5 +63,16 @@ extension UIViewController {
         
         hud.customView = UIImageView(image: #imageLiteral(resourceName: "CheckMark"))
         hud.hide(animated: true, afterDelay: 2)
+    }
+    
+    func setRootController(vcId : String) {
+        DispatchQueue.main.async {
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                return
+            }
+            appDelegate.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: vcId)
+            appDelegate.window?.makeKeyAndVisible()
+        }
+
     }
 }

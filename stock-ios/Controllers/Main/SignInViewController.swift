@@ -71,7 +71,7 @@ class SignInViewController: AppViewController {
             .bind { value in
                 switch value {
                 case .isSuccess:
-                    let tabsViewController = self.storyboard?.instantiateViewController(withIdentifier: VCIdentifier.tabBarVC) as! TabsViewController
+                    let tabsViewController = self.storyboard?.instantiateViewController(withIdentifier: VCIdentifier.tabBarNavVC) as! UINavigationController
                     DispatchQueue.main.async {
                         self.present(tabsViewController, animated: true)
                     }
@@ -85,6 +85,8 @@ class SignInViewController: AppViewController {
                     case 444: self.showAlertOk(title: "Ошибка авторизации", message: "Пароль введен не верно")
                     default: self.showAlertOk(title: "Извинте", message: "Во время регистрации произошла ошибка, повторите попытку еще раз")
                     }
+                case .noInternetConnection:
+                    self.showAlertNoConnection()
                 }
             }.disposed(by: bag)
     }

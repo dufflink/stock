@@ -64,19 +64,21 @@ class CheckTokenData : Codable {
     var method = Methods.checkToken
 }
 
-class UserIdParams : Codable {
+class IdParams : Codable {
     var id : Int64!
     init(id :Int64) { self.id = id }
 }
 
 class GetUserInfoData : Codable {
-    var params : UserIdParams!
+    var params : IdParams!
     var method = Methods.getUserInfo
 }
 
 class GetUserStatData : Codable {
-    var params : UserIdParams!
+    var params : IdParams!
     var method = Methods.getUserStat
 }
+
+
 
 

@@ -14,7 +14,7 @@ import Alamofire
 import SwiftyJSON
 
 enum ResultApiCall {
-    case errorEncode, errorDecode, errorRequst, isSuccess, isFailure(code : Int)
+    case errorEncode, errorDecode, errorRequst, isSuccess, isFailure(code : Int), noInternetConnection
 }
 
 class Api {
@@ -24,6 +24,11 @@ class Api {
         func signUp(info : SignUpData, completionHandler: @escaping (ResultApiCall) -> ()) {
             guard let request = makeRequest(info: info, url: Urls.signup) else {
                 completionHandler(.errorEncode)
+                return
+            }
+            
+            if !Connectivity.isConnectedToInternet {
+                completionHandler(.noInternetConnection)
                 return
             }
             
@@ -55,6 +60,11 @@ class Api {
     func signIn(info : SignInData, completionHandler: @escaping (ResultApiCall) -> ()) {
         guard let request = makeRequest(info: info, url: Urls.signin) else {
             completionHandler(.errorEncode)
+            return
+        }
+        
+        if !Connectivity.isConnectedToInternet {
+            completionHandler(.noInternetConnection)
             return
         }
         
@@ -99,6 +109,11 @@ class Api {
     func checkToken(info : CheckTokenData, completionHandler: @escaping (ResultApiCall) -> ()) {
         guard let request = makeRequest(info: info, url: Urls.checktoken) else {
             completionHandler(.errorEncode)
+            return
+        }
+        
+        if !Connectivity.isConnectedToInternet {
+            completionHandler(.noInternetConnection)
             return
         }
         
@@ -199,5 +214,14 @@ class Api {
                 completionHandler(.errorRequst)
             }
         }
+    }
+    
+    func getCompanyById(info : GetCompanyByIdData) -> CompanyData? {
+        guard let request = makeRequest(info: info, url: Urls.getCompanyById) else {
+            return nil
+        }
+        
+        
+        return CompanyData()
     }
 }

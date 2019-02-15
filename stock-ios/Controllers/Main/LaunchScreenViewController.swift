@@ -7,19 +7,63 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class LaunchScreenViewController: UIViewController {
+    
+    let dispouseBag = DisposeBag()
+    let startAppViewModel = StartAppViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async {
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-                return
-            }
-            appDelegate.window?.rootViewController = Storyboards.main.instantiateViewController(withIdentifier: VCIdentifier.mainNavVC)
-            appDelegate.window?.makeKeyAndVisible()
-        }
+        setCallBack()
+        
+        startAppViewModel.isLoading
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { value in
+                if value {
+                    self.showHud()
+                } else {
+                    self.hideHud()
+                }
+            }).disposed(by: dispouseBag)
+        
+        startAppViewModel.checkToken()
+    }
+    
+    func setTabsAsRoot() {
+        self.setRootController(vcId: VCIdentifier.tabBarNavVC)
+    }
+    
+    func setCallBack() {
+        startAppViewModel.result.asObserver()
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.instance)
+            .skip(1)
+            .bind { value in
+                
+                print("Result set CallBack \(value)")
+
+                switch value {
+                case .isSuccess:
+                    self.setRootController(vcId: VCIdentifier.tabBarNavVC)
+                case .noInternetConnection:
+                    self.showAlertOkWithAction(title: "Подключение", message: "Подключение к сети отсутствует, некоторые функции могут быть не доступны", action: self.setTabsAsRoot)
+                    break
+                case .errorDecode, .errorEncode, .errorRequst:
+                    print("Error request auto auth")
+                case .isFailure(let code):
+                    switch code {
+                    case 0: self.showAlertOk(title: "Ошибка", message: "Не удается подключиться к серверу")
+                    case 100:
+                        self.setRootController(vcId: VCIdentifier.mainNavVC)
+                    default: break
+                    }
+                }
+            }.disposed(by: dispouseBag)
     }
 }
 
