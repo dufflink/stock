@@ -124,5 +124,6 @@ class User {
         bonus = 0
         amountSave = 0
         sex = 0
+        saveSettings()
     }
 }

@@ -17,4 +17,20 @@ class AttendedCompanyTableViewCell: UITableViewCell {
     @IBOutlet weak var comment: StyleButton!
     
     var id : Int64!
+    var isRated : Int!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    func configure(data : AttendedCompanyData) {
+        print("Ссылки на картинки \(data.pictureUrl)")
+
+        picture.loadPicture(url: data.pictureUrl)
+        title.text = data.title
+        count.setTitle(data.count, for: .normal)
+        isRated = data.isRated
+        id = data.companyId
+        comment.isHidden = isRated == 1 ? true : false
+    }
 }

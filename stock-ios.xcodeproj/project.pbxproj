@@ -51,6 +51,7 @@
 		B08A3A2D2216CC8F0072AF7E /* AttendedCompanyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08A3A2C2216CC8F0072AF7E /* AttendedCompanyView.xib */; };
 		B08A3A302216D4D60072AF7E /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A3A2F2216D4D60072AF7E /* UserProfileViewModel.swift */; };
 		B08A3A322216DE990072AF7E /* CompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A3A312216DE990072AF7E /* CompanyData.swift */; };
+		B0A77968221AB0BC00E75371 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A77967221AB0BC00E75371 /* UIImageView.swift */; };
 		B0D7C3C2221580A800EA69E9 /* StartAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D7C3C1221580A800EA69E9 /* StartAppViewModel.swift */; };
 		F4FD78E2F9656E2A3E747D58 /* Pods_stock_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F52165CE2BC96CC545B018 /* Pods_stock_ios.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		B08A3A2C2216CC8F0072AF7E /* AttendedCompanyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendedCompanyView.xib; sourceTree = "<group>"; };
 		B08A3A2F2216D4D60072AF7E /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		B08A3A312216DE990072AF7E /* CompanyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyData.swift; sourceTree = "<group>"; };
+		B0A77967221AB0BC00E75371 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		B0D7C3C1221580A800EA69E9 /* StartAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +183,7 @@
 				B035C28E220ED1C3007DA5CD /* String.swift */,
 				B035C2902211573B007DA5CD /* UIViewController.swift */,
 				B063E0CA2212C821009E9D48 /* Api + Ext.swift */,
+				B0A77967221AB0BC00E75371 /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				B063E0C52212B10E009E9D48 /* CompanyStatistic.swift in Sources */,
 				B035C23B220AC632007DA5CD /* Config.swift in Sources */,
 				B035C245220ACE34007DA5CD /* AppColor.swift in Sources */,
+				B0A77968221AB0BC00E75371 /* UIImageView.swift in Sources */,
 				B063E0D22212ED57009E9D48 /* CategoriesViewController.swift in Sources */,
 				B0D7C3C2221580A800EA69E9 /* StartAppViewModel.swift in Sources */,
 				B035C22E220AB6D1007DA5CD /* MainNavigationController.swift in Sources */,

@@ -35,7 +35,7 @@ class LaunchScreenViewController: UIViewController {
     }
     
     func setTabsAsRoot() {
-        self.setRootController(vcId: VCIdentifier.tabBarNavVC)
+        self.setRootController(storyboard: self.storyboard!, vcId: VCIdentifier.tabBarNavVC)
     }
     
     func setCallBack() {
@@ -49,7 +49,7 @@ class LaunchScreenViewController: UIViewController {
 
                 switch value {
                 case .isSuccess:
-                    self.setRootController(vcId: VCIdentifier.tabBarNavVC)
+                    self.setRootController(storyboard: self.storyboard!,vcId: VCIdentifier.tabBarNavVC)
                 case .noInternetConnection:
                     self.showAlertOkWithAction(title: "Подключение", message: "Подключение к сети отсутствует, некоторые функции могут быть не доступны", action: self.setTabsAsRoot)
                     break
@@ -59,7 +59,7 @@ class LaunchScreenViewController: UIViewController {
                     switch code {
                     case 0: self.showAlertOk(title: "Ошибка", message: "Не удается подключиться к серверу")
                     case 100:
-                        self.setRootController(vcId: VCIdentifier.mainNavVC)
+                        self.setRootController(storyboard: self.storyboard!, vcId: VCIdentifier.mainNavVC)
                     default: break
                     }
                 }

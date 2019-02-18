@@ -13,7 +13,6 @@ class TabsViewController: UITabBarController {
     
     override func viewDidLoad() {
         setTabs()
-        setLayoutOptions()
     }
     
     func setTabs() {
@@ -26,10 +25,5 @@ class TabsViewController: UITabBarController {
         self.viewControllers = controllers.map {
             UINavigationController(rootViewController: $0 as! AppViewController)
         }
-    }
-    
-    func setLayoutOptions() {
-//        self.tabBar.barStyle = .black
-//        self.tabBar.tintColor = UIColor.AppColor.Red.redLight
     }
 }

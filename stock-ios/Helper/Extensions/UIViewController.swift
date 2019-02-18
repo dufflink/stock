@@ -65,12 +65,12 @@ extension UIViewController {
         hud.hide(animated: true, afterDelay: 2)
     }
     
-    func setRootController(vcId : String) {
+    func setRootController(storyboard: UIStoryboard, vcId : String) {
         DispatchQueue.main.async {
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
                 return
             }
-            appDelegate.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: vcId)
+            appDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: vcId)
             appDelegate.window?.makeKeyAndVisible()
         }
 

@@ -131,6 +131,7 @@ class Api {
                         User.shared.id = id
                         completionHandler(.isSuccess)
                     } else {
+                        print("Check token code \(code)")
                         completionHandler(.isFailure(code: 0))
                     }
                 } catch let error {
@@ -216,12 +217,48 @@ class Api {
         }
     }
     
-    func getCompanyById(info : GetCompanyByIdData) -> CompanyData? {
-        guard let request = makeRequest(info: info, url: Urls.getCompanyById) else {
-            return nil
+    func getCompanyByIdForUserProfile(id : Int64, completionHandler: @escaping (CompanyData) -> ()) {
+        
+        var companyData : CompanyData!
+        let getCompanyByIdData = GetCompanyByIdData()
+        getCompanyByIdData.params = IdParams(id : id)
+        
+        guard let request = makeRequest(info: getCompanyByIdData, url: Urls.getCompanyById) else {
+            completionHandler(companyData)
+            return
         }
         
+        Alamofire.request(request).responseJSON { response in
+            let code = response.response?.statusCode
+            if code == 200 {
+                do {
+                    let json = try JSON(data: response.data!) as JSON?
+                    guard let code = json!["code"].int else {
+                        completionHandler(companyData)
+                        return
+                    }
+//                    print(json?.dictionaryValue)
+                    if code == 0 {
+                        guard let companyJson = json!["value"]["company"] as JSON? else {
+                            completionHandler(companyData)
+                            return
+                        }
+                        
+                        companyData = CompanyData(id: companyJson["id"].int64Value, title: companyJson["Title"].stringValue, pictureUrl: companyJson["PictureUrl"].stringValue)
+                        
+                        completionHandler(companyData)
+                    } else {
+                        print("code \(code)")
+                        completionHandler(companyData)
+                    }
+                } catch let error {
+                    print("Error decode json: ", error)
+                }
+            } else {
+                print("Error send request:", response.result.error!)
+                completionHandler(companyData)
+            }
+        }
         
-        return CompanyData()
     }
 }
