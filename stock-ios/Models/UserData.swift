@@ -79,6 +79,24 @@ class GetUserStatData : Codable {
     var method = Methods.getUserStat
 }
 
+class UpdateUserProfileData : Codable {
+    var params : UpdateUserProfileParams!
+    var method = Methods.updateUserProfile
+}
 
-
+class UpdateUserProfileParams: Codable {
+    var id : Int64!
+    var new_name : String!
+    var new_surname : String!
+    var new_birthday : String!
+    var new_sex : Int!
+    
+    init(id : Int64, new_name : String, new_surname : String, new_birthday : String, new_sex : Int) {
+        self.id = id
+        self.new_name = new_name
+        self.new_surname = new_surname
+        self.new_birthday = new_birthday
+        self.new_sex = new_sex
+    }
+}
 

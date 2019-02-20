@@ -45,7 +45,6 @@ class SignInViewModel {
     
     func checkToken() {
         checkTokenData.params = CheckTokenParams(who: 2, token: User.shared.token, user_agent: userAgent)
-        
         Api.shared.checkToken(info: checkTokenData) { result in
             self.checkResult(result: result, action: self.getUserInfo)
         }
@@ -75,8 +74,6 @@ class SignInViewModel {
     }
     
     func checkResult(result : ResultApiCall, action: () -> Void) {
-        self.isLoading.onNext(false)
-
         switch result {
         case .isSuccess:
             action()

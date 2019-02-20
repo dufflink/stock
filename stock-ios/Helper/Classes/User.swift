@@ -50,7 +50,7 @@ class User {
         surname = userObject["Surname"].stringValue
         patronymic = userObject["Patronymic"].stringValue
         balance = userObject["Balance"].stringValue
-        birthday = userObject["Birthday"].stringValue
+        birthday = userObject["Birthday"]["String"].stringValue
         isActivated = userObject["IsActivated"].boolValue
         subscribeEndTime = userObject["SubscribeEndTime"].stringValue
         bonus = userObject["Bonus"].intValue

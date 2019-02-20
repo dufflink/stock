@@ -72,6 +72,7 @@ class UserProfileViewController : AppViewController {
     override func setLayoutOptions() {
         view.backgroundColor = UIColor.AppColor.Red.redUltraWhite
         navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = UIColor.AppColor.Red.redLight
         title = "Профиль"
     }
     
@@ -84,7 +85,11 @@ class UserProfileViewController : AppViewController {
     func showMoreMenu() {
         let alert = UIAlertController(title: "Меню", message: nil, preferredStyle: .alert)
         let updateProfile = UIAlertAction(title: "Редактировать профиль", style: .default, handler: { _ in
-            //TODO: Обновление профиля
+            guard let updateUserProfile = self.storyboard?.instantiateViewController(withIdentifier: VCIdentifier.updateUserProfileVC) as? UpdateUserProfileViewController else {
+                return
+            }
+            
+            self.navigationController?.pushViewController(updateUserProfile, animated: true)
         })
         let exit = UIAlertAction(title: "Выход", style: .default, handler: { _ in
             self.showExitMenu()

@@ -51,6 +51,8 @@
 		B08A3A2D2216CC8F0072AF7E /* AttendedCompanyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B08A3A2C2216CC8F0072AF7E /* AttendedCompanyView.xib */; };
 		B08A3A302216D4D60072AF7E /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A3A2F2216D4D60072AF7E /* UserProfileViewModel.swift */; };
 		B08A3A322216DE990072AF7E /* CompanyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A3A312216DE990072AF7E /* CompanyData.swift */; };
+		B0A3C932221BEDB60025197E /* UpdateUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A3C931221BEDB60025197E /* UpdateUserProfileViewController.swift */; };
+		B0A3C934221BF5960025197E /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A3C933221BF5960025197E /* UpdateProfileViewModel.swift */; };
 		B0A77968221AB0BC00E75371 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A77967221AB0BC00E75371 /* UIImageView.swift */; };
 		B0D7C3C2221580A800EA69E9 /* StartAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D7C3C1221580A800EA69E9 /* StartAppViewModel.swift */; };
 		F4FD78E2F9656E2A3E747D58 /* Pods_stock_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F52165CE2BC96CC545B018 /* Pods_stock_ios.framework */; };
@@ -106,6 +108,8 @@
 		B08A3A2C2216CC8F0072AF7E /* AttendedCompanyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AttendedCompanyView.xib; sourceTree = "<group>"; };
 		B08A3A2F2216D4D60072AF7E /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		B08A3A312216DE990072AF7E /* CompanyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyData.swift; sourceTree = "<group>"; };
+		B0A3C931221BEDB60025197E /* UpdateUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileViewController.swift; sourceTree = "<group>"; };
+		B0A3C933221BF5960025197E /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
 		B0A77967221AB0BC00E75371 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		B0D7C3C1221580A800EA69E9 /* StartAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -344,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				B063E0CE2212ED21009E9D48 /* UserProfileViewController.swift */,
+				B0A3C931221BEDB60025197E /* UpdateUserProfileViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				B035C29422117FAD007DA5CD /* SignInViewModel.swift */,
 				B0D7C3C1221580A800EA69E9 /* StartAppViewModel.swift */,
 				B08A3A2F2216D4D60072AF7E /* UserProfileViewModel.swift */,
+				B0A3C933221BF5960025197E /* UpdateProfileViewModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -557,10 +563,12 @@
 				B04745482209B71F00C14A05 /* LaunchScreenViewController.swift in Sources */,
 				B035C232220ABCD7007DA5CD /* SignInViewController.swift in Sources */,
 				B035C2912211573B007DA5CD /* UIViewController.swift in Sources */,
+				B0A3C932221BEDB60025197E /* UpdateUserProfileViewController.swift in Sources */,
 				B035C2932211788A007DA5CD /* StyleCardView.swift in Sources */,
 				B035C252220AE225007DA5CD /* UserData.swift in Sources */,
 				B08A3A292216CA9C0072AF7E /* AttendedCompanyTableViewCell.swift in Sources */,
 				B035C28D220ECE7C007DA5CD /* Utils.swift in Sources */,
+				B0A3C934221BF5960025197E /* UpdateProfileViewModel.swift in Sources */,
 				B04745462209B71F00C14A05 /* AppDelegate.swift in Sources */,
 				B035C24F220ADFD1007DA5CD /* Api.swift in Sources */,
 				B035C29522117FAD007DA5CD /* SignInViewModel.swift in Sources */,

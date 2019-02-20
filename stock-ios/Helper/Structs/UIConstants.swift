@@ -13,6 +13,8 @@ struct VCIdentifier {
     static let startVC = "StartViewController"
     static let tabBarNavVC = "TabsNavigationController"
     static let mainNavVC = "MainNavigationController"
+    static let updateUserProfileVC = "UpdateUserProfileViewController"
+    
 }
 
 struct Storyboards {

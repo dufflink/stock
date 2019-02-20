@@ -22,7 +22,7 @@ class Api {
     static let shared = Api()
     
         func signUp(info : SignUpData, completionHandler: @escaping (ResultApiCall) -> ()) {
-            guard let request = makeRequest(info: info, url: Urls.signup) else {
+            guard let request = makeRequest(info: info, url: Urls.getUrls(method: Methods.signup)) else {
                 completionHandler(.errorEncode)
                 return
             }
@@ -58,7 +58,7 @@ class Api {
         }
     
     func signIn(info : SignInData, completionHandler: @escaping (ResultApiCall) -> ()) {
-        guard let request = makeRequest(info: info, url: Urls.signin) else {
+        guard let request = makeRequest(info: info, url: Urls.getUrls(method: Methods.signin)) else {
             completionHandler(.errorEncode)
             return
         }
@@ -107,7 +107,7 @@ class Api {
     }
     
     func checkToken(info : CheckTokenData, completionHandler: @escaping (ResultApiCall) -> ()) {
-        guard let request = makeRequest(info: info, url: Urls.checktoken) else {
+        guard let request = makeRequest(info: info, url: Urls.getUrls(method: Methods.checkToken)) else {
             completionHandler(.errorEncode)
             return
         }
@@ -145,7 +145,7 @@ class Api {
     }
     
     func getUserInfo(info : GetUserInfoData, completionHandler: @escaping (ResultApiCall) -> ()) {
-        guard let request = makeRequest(info: info, url: Urls.getUserInfo) else {
+        guard let request = makeRequest(info: info, url: Urls.getUrls(method: Methods.getUserInfo)) else {
             completionHandler(.errorEncode)
             return
         }
@@ -181,7 +181,7 @@ class Api {
     }
     
     func getUserStat(info : GetUserStatData, completionHandler: @escaping (ResultApiCall) -> ()) {
-        guard let request = makeRequest(info: info, url: Urls.getUserStat) else {
+        guard let request = makeRequest(info: info, url: Urls.getUrls(method: Methods.getUserStat)) else {
             completionHandler(.errorEncode)
             return
         }
@@ -223,7 +223,7 @@ class Api {
         let getCompanyByIdData = GetCompanyByIdData()
         getCompanyByIdData.params = IdParams(id : id)
         
-        guard let request = makeRequest(info: getCompanyByIdData, url: Urls.getCompanyById) else {
+        guard let request = makeRequest(info: getCompanyByIdData, url: Urls.getUrls(method: Methods.getCompanyById)) else {
             completionHandler(companyData)
             return
         }
@@ -259,6 +259,36 @@ class Api {
                 completionHandler(companyData)
             }
         }
+    }
+    
+    func updateUserProfile(info : UpdateUserProfileData, completionHandler: @escaping (ResultApiCall) -> ()) {
+        guard let request = makeRequest(info: info, url: Urls.getUrls(method: Methods.updateUserProfile)) else {
+            completionHandler(.errorEncode)
+            return
+        }
         
+        Alamofire.request(request).responseJSON { response in
+            let code = response.response?.statusCode
+            if code == 200 {
+                do {
+                    let json = try JSON(data: response.data!) as JSON?
+                    guard let code = json!["code"].int else {
+                        completionHandler(.errorDecode)
+                        return
+                    }
+                    if code == 0 {
+                        completionHandler(.isSuccess)
+                    } else {
+                        print(code)
+                        completionHandler(.isFailure(code: 0))
+                    }
+                } catch let error {
+                    print("Error decode json: ", error)
+                }
+            } else {
+                print("Error send request:", response.result.error!)
+                completionHandler(.errorRequst)
+            }
+        }
     }
 }
